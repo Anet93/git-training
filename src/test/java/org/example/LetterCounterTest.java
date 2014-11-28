@@ -22,4 +22,28 @@ public class LetterCounterTest {
             .hasSize(1)
             .containsEntry('a', 1);
     }
+    
+    @Test
+    public void countsLetterInSingleLine() throws IOException {
+        Map<Character, Integer> result = counter.countLetters(new BufferedReader(new StringReader("abcd")));
+        
+        assertThat(result)
+            .hasSize(4)
+            .containsEntry('a', 1)
+            .containsEntry('b', 1)
+            .containsEntry('c', 1)
+            .containsEntry('d', 1);
+    }
+    
+    @Test
+    public void correctlyCountsRepeatedLetter() throws IOException {
+        Map<Character, Integer> result = counter.countLetters(new BufferedReader(new StringReader("abcdaaa")));
+        
+        assertThat(result)
+            .hasSize(4)
+            .containsEntry('a', 4)
+            .containsEntry('b', 1)
+            .containsEntry('c', 1)
+            .containsEntry('d', 1);
+    }
 }
