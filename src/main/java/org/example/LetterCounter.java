@@ -10,8 +10,10 @@ public class LetterCounter {
 
     public Map<Character, Integer> countLetters(BufferedReader in) throws IOException {
         Map<Character, Integer> result = new HashMap<Character, Integer>();
-        String line = in.readLine();
-        countLetters(line, result);
+        String line;
+        while ((line = in.readLine()) != null) {
+            countLetters(line, result);
+        }
         return result;
     }
 
@@ -21,7 +23,7 @@ public class LetterCounter {
             if (result.get(ch) == null) {
                 result.put(ch, 1);
             } else {
-                int count = result.get(line.charAt(0));
+                int count = result.get(line.charAt(i));
                 result.put(ch, count + 1);
             }
         }

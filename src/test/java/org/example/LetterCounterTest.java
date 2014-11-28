@@ -46,4 +46,16 @@ public class LetterCounterTest {
             .containsEntry('c', 1)
             .containsEntry('d', 1);
     }
+    
+    @Test
+    public void countsLettersFromMultipleLines() throws IOException {
+        Map<Character, Integer> result = counter.countLetters(new BufferedReader(new StringReader("abcd" + "\n" + "abcd")));
+        
+        assertThat(result)
+            .hasSize(4)
+            .containsEntry('a', 2)
+            .containsEntry('b', 2)
+            .containsEntry('c', 2)
+            .containsEntry('d', 2);
+    }
 }
