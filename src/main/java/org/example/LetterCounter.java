@@ -9,7 +9,7 @@ import java.util.Map;
 public class LetterCounter {
 
     public Map<Character, Integer> countLetters(BufferedReader in) throws IOException {
-        Map<Character, Integer> result = new HashMap<Character, Integer>();
+        Map<Character, Integer> result = new HashMap<>();
         String line = in.readLine();
         countLetters(line, result);
         return result;
