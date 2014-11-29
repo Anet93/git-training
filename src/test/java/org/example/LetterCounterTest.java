@@ -46,4 +46,13 @@ public class LetterCounterTest {
             .containsEntry('c', 1)
             .containsEntry('d', 1);
     }
+    
+    @Test
+    public void ignoresCase() throws IOException {
+        Map<Character, Integer> result = counter.countLetters(new BufferedReader(new StringReader("AAaa")));
+        
+        assertThat(result)
+            .hasSize(1)
+            .containsEntry('a', 4);
+    }
 }
