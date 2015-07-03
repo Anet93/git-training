@@ -17,11 +17,12 @@ public class LetterCounter {
 
     private void countLetters(String line, Map<Character, Integer> result) {
         for (int i = 0; i< line.length(); i++) {
-            char ch = line.charAt(i);
+
+            Character ch = Character.toLowerCase(line.charAt(i));
             if (result.get(ch) == null) {
                 result.put(ch, 1);
             } else {
-                int count = result.get(line.charAt(0));
+                int count = result.get(ch);
                 result.put(ch, count + 1);
             }
         }
