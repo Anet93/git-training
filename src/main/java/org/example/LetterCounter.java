@@ -17,6 +17,7 @@ public class LetterCounter {
 
     private void countLetters(String line, Map<Character, Integer> result) {
         for (int i = 0; i< line.length(); i++) {
+
             Character ch = Character.toLowerCase(line.charAt(i));
             if (result.get(ch) == null) {
                 result.put(ch, 1);
